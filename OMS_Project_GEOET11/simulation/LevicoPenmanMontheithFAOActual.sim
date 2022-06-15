@@ -7,6 +7,7 @@ def endDate		= "2020-1-1 00:00"
 def basin 		= "Levico"
 def ID			= 1
 def timestep 	= 60
+def lab         = "totalstress" // potential  -  totalstress  -  environmentalstress  -  waterstress
 
 OMS3.sim {
      resource "$oms_prj/lib"
@@ -43,12 +44,12 @@ OMS3.sim {
 				"input.centroidElevation"	"Elevation"
 
 				// PARAMETERS
-				"penmanMonteithFao.canopyHeight"			1.26
-		        "penmanMonteithFao.soilFluxParameterDay"	0.35
+				"penmanMonteithFao.canopyHeight"				1.26
+		        "penmanMonteithFao.soilFluxParameterDay"		0.35
 		        "penmanMonteithFao.soilFluxParameterNight"	0.75
-		        "output.doPrintOutputPM"					true
-				"input.tStartDate"					"${startDate}"
-				"input.temporalStep"				"${timestep}"
+		        "output.doPrintOutputPM"						true
+				"input.tStartDate"						"${startDate}"
+				"input.temporalStep"						"${timestep}"
 				
 				//Parameters for the Radiation Stress
 				"PMstressfactor.useRadiationStress" true
@@ -128,11 +129,11 @@ OMS3.sim {
                 "readerSoilMoisture.fileNovalue"                 "-9999.0"																				
 		
                 //	WRITERS				              
-				"writerLatentHeatFAO.file"						"${home}/output/${basin}/${ID}/WaterStressLatentHeat_FAO_${ID}.csv"	
+				"writerLatentHeatFAO.file"						"${home}/output/${basin}/${ID}/LatentHeat_FAO_${ID}_${lab}.csv"	
 				"writerLatentHeatFAO.tStart"					"${startDate}"
 				"writerLatentHeatFAO.tTimestep"					"${timestep}"
 				
-				"writerETFAO.file"								"${home}/output/${basin}/${ID}/WaterStressEvapoTranspiration_FAO_${ID}.csv" 
+				"writerETFAO.file"								"${home}/output/${basin}/${ID}/EvapoTranspiration_FAO_${ID}_${lab}.csv" 
 				"writerETFAO.tStart"							"${startDate}"
 				"writerETFAO.tTimestep"							"${timestep}"
 				
