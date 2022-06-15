@@ -2,12 +2,12 @@ import static oms3.SimBuilder.instance as OMS3		//METTE INSIEME TUTTE LE COMPONE
 import static oms3.SimBuilder.*
 def home = oms_prj
 
-def startDate	= "2019-1-1 11:00"
+def startDate	= "2019-1-1 00:00"
 def endDate		= "2020-1-1 00:00"
 def basin 		= "Levico"
 def ID			= 1
 def timestep 	= 60
-def lab         = "waterstress" // potential  -  totalstress  -  environmentalstress  -  waterstress
+def lab         = "totalstress" // potential  -  totalstress  -  environmentalstress  -  waterstress
 
 OMS3.sim {
      resource "$oms_prj/lib"
@@ -76,22 +76,22 @@ OMS3.sim {
 				"input.temporalStep"			"${timestep}"
 				
 				//Parameters for the Radiation Stress
-				"stressfactor.useRadiationStress" false
+				"stressfactor.useRadiationStress" true
 				  
 				"stressfactor.alpha" 		0.005
 				"stressfactor.theta" 		0.9
 				
 				//Parameter for the Vapour Pressure Deficit Stress
-				"stressfactor.useVDPStress" false
+				"stressfactor.useVDPStress" true
 				
 				"stressfactor.VPD0" 	5.0 
 				
 				//Parameters for the Temperature Stress
-				"stressfactor.useTemperatureStress" false    
+				"stressfactor.useTemperatureStress" true   
 				   	
 				"stressfactor.Tl" 		"-5.0"
 				"stressfactor.T0" 		20.0
-				"stressfactor.Th" 		45.0 
+				"stressfactor.Th" 		40.0 
 				
 				//Parameters for the Water Stress 
 				"stressfactor.useWaterStress" true 
@@ -99,7 +99,7 @@ OMS3.sim {
 				"stressfactor.waterWiltingPoint"		0.17 	 //FAO Table 19 - http://www.fao.org/3/X0490E/x0490e0c.htm#TopOfPage
 				"stressfactor.waterFieldCapacity"	0.30	
 				"stressfactor.rootsDepth"  			1.50		 //table 22
-				"stressfactor.evaporationDepth"  	0.25	
+				"stressfactor.evaporationDepth"  	0.30	
 				"stressfactor.depletionFraction" 	0.40  	 //FAO Table 22 - http://www.fao.org/3/X0490E/x0490e0e.htm#TopOfPage
 				"stressfactor.cropCoefficient" 		0.90 	 //table 12
 								
