@@ -7,7 +7,7 @@ def endDate		= "2020-1-1 00:00"
 def basin 		= "Levico"
 def ID			= 1
 def timestep 	= 60
-def lab         = "waterstress" // potential  -  totalstress  -  environmentalstress  -  waterstress
+def lab         = "potential" // potential  -  totalstress  -  environmentalstress  -  waterstress
 
 OMS3.sim {
      resource "$oms_prj/lib"
@@ -94,7 +94,7 @@ OMS3.sim {
 				"stressfactor.Th" 		40.0 
 				
 				//Parameters for the Water Stress 
-				"stressfactor.useWaterStress" true 
+				"stressfactor.useWaterStress" false 
 				     	
 				"stressfactor.waterWiltingPoint"		0.17 	 //FAO Table 19 - http://www.fao.org/3/X0490E/x0490e0c.htm#TopOfPage
 				"stressfactor.waterFieldCapacity"	0.30	
@@ -174,7 +174,7 @@ OMS3.sim {
 				"readerLeafAreaIndex.tTimestep"    				"${timestep}"
 				"readerLeafAreaIndex.fileNovalue"  				"-9999.0" 			
 		
-				"readerSoilMoisture.file"                       "${home}/data/${basin}/${ID}/SoilMoisture18.csv"	
+				"readerSoilMoisture.file"                       "${home}/data/${basin}/${ID}/SoilMoistureSin.csv"	
                 "readerSoilMoisture.idfield"                    "ID"		
                 "readerSoilMoisture.tStart"                     "${startDate}"
                 "readerSoilMoisture.tEnd"                       "${endDate}"
