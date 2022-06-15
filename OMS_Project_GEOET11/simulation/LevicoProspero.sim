@@ -144,7 +144,7 @@ OMS3.sim {
 				"readerNetRadiation.tTimestep"   				"${timestep}"  
 				"readerNetRadiation.fileNovalue" 				"-9999.0"
 						
-				"readerAtmosphericPressure.file"                "${home}/data/${basin}/${ID}/Pressione_Levico_${ID}.csv"		//non abbiamo i dati quindi mettiamo nan, il modello se la calcolerà in modo lineare da un dato che conosce
+				"readerAtmosphericPressure.file"                "${home}/data/${basin}/${ID}/Pressione_Levico_${ID}.csv"
 				"readerAtmosphericPressure.idfield"             "ID"		
 				"readerAtmosphericPressure.tStart"              "${startDate}"
 				"readerAtmosphericPressure.tEnd"                "${endDate}"
