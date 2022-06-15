@@ -7,7 +7,7 @@ def endDate		= "2020-1-1 00:00"
 def basin 		= "Levico"
 def ID			= 1
 def timestep 	= 60
-def lab         = "totalstress" // potential  -  totalstress  -  environmentalstress  -  waterstress
+def lab         = "waterstress" // potential  -  totalstress  -  environmentalstress  -  waterstress
 
 OMS3.sim {
      resource "$oms_prj/lib"
@@ -76,21 +76,21 @@ OMS3.sim {
 				"input.temporalStep"			"${timestep}"
 				
 				//Parameters for the Radiation Stress
-				"stressfactor.useRadiationStress" true
+				"stressfactor.useRadiationStress" false
 				  
 				"stressfactor.alpha" 		0.005
 				"stressfactor.theta" 		0.9
 				
 				//Parameter for the Vapour Pressure Deficit Stress
-				"stressfactor.useVDPStress" true
+				"stressfactor.useVDPStress" false
 				
 				"stressfactor.VPD0" 	5.0 
 				
 				//Parameters for the Temperature Stress
-				"stressfactor.useTemperatureStress" true   
+				"stressfactor.useTemperatureStress" false   
 				   	
 				"stressfactor.Tl" 		"-5.0"
-				"stressfactor.T0" 		20.0
+				"stressfactor.T0" 		17.0
 				"stressfactor.Th" 		40.0 
 				
 				//Parameters for the Water Stress 
@@ -167,7 +167,7 @@ OMS3.sim {
                 "readerSoilHeatFlux.tTimestep"                  "${timestep}"
                 "readerSoilHeatFlux.fileNovalue"                "-9999.0"
                 
-                "readerLeafAreaIndex.file"         				"${home}/data/${basin}/${ID}/LAI_${ID}.csv" 
+                "readerLeafAreaIndex.file"         				"${home}/data/${basin}/${ID}/LAI_sin.csv" 
 				"readerLeafAreaIndex.idfield"      				"ID"  
 				"readerLeafAreaIndex.tStart"       				"${startDate}"
 				"readerLeafAreaIndex.tEnd"         				"${endDate}"
