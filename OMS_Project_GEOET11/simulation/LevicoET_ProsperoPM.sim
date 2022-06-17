@@ -5,9 +5,9 @@ def home = oms_prj
 def startDate	= "2019-1-1 00:00"
 def endDate		= "2020-1-1 00:00"
 def basin 		= "Levico"
-def ID			= 1
+def ID			= 2
 def timestep 	= 60
-def lab         = "potential" // potential  -  totalstress  -  environmentalstress  -  waterstress
+def lab         = "environmentalstress" // potential  -  totalstress  -  environmentalstress  -  waterstress
 
 OMS3.sim {
      resource "$oms_prj/lib"
@@ -76,18 +76,18 @@ OMS3.sim {
 				"input.temporalStep"			"${timestep}"
 				
 				//Parameters for the Radiation Stress
-				"stressfactor.useRadiationStress" false
+				"stressfactor.useRadiationStress" true
 				  
 				"stressfactor.alpha" 		0.005
 				"stressfactor.theta" 		0.9
 				
 				//Parameter for the Vapour Pressure Deficit Stress
-				"stressfactor.useVDPStress" false
+				"stressfactor.useVDPStress" true
 				
 				"stressfactor.VPD0" 	5.0 
 				
 				//Parameters for the Temperature Stress
-				"stressfactor.useTemperatureStress" false   
+				"stressfactor.useTemperatureStress" true   
 				   	
 				"stressfactor.Tl" 		"-5.0"
 				"stressfactor.T0" 		17.0
@@ -160,7 +160,7 @@ OMS3.sim {
 				"readerAtmosphericPressure.tTimestep"           "${timestep}"
 				"readerAtmosphericPressure.fileNovalue"         "-9999.0"
 								
-				"readerSoilHeatFlux.file"                       "${home}/data/${basin}/${ID}/GHF_${basin}_${ID}.csv"	
+				"readerSoilHeatFlux.file"                       "${home}/data/${basin}/${ID}/GHF_${ID}.csv"	
                 "readerSoilHeatFlux.idfield"                    "ID"		
                 "readerSoilHeatFlux.tStart"                     "${startDate}"
                 "readerSoilHeatFlux.tEnd"                       "${endDate}"
