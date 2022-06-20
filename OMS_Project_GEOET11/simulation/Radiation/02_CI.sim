@@ -53,7 +53,7 @@ resource "$oms_prj/lib"
         
             
         // parameter of the writing component    
-        "writer_CI.file"                   "${home}/data/${basin}/${ID}/CI_${ID}.csv" 
+        "writer_CI.file"                   "${home}/data/${basin}/${ID}/CI_${ID}.csv" //clearness index
         "writer_CI.tStart"                 "${startDate}"
         "writer_CI.fileNovalue"			"-9999"
         "writer_CI.tTimestep"              "${timestep}"
