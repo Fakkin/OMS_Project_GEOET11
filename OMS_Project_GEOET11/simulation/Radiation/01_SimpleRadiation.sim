@@ -1,12 +1,12 @@
 import static oms3.SimBuilder.instance as OMS3
 def home = oms_prj
-def startDate =	"2013-12-15 00:00"
-def endDate =	"2015-12-16 00:00"
+def startDate =	"2019-01-01 00:00"
+def endDate =	"2020-01-01 00:00"
 def timestep =	60
 def ID =		1	
 def IDcsv = 	"ID"
 def Nancsv =	"-9999"
-def basin =		"Cavone"
+def basin =		"Levico"
 
 
 
@@ -44,7 +44,7 @@ resource "$oms_prj/lib"
    parameter{
    
         // parameters reader data input air temperature
-        "reader_data_airT.file"            "${home}/data/${basin}/${ID}/airT_${ID}.csv"
+        "reader_data_airT.file"            "${home}/data/${basin}/${ID}/Temp_Levico_${ID}.csv"
         "reader_data_airT.idfield"         "${IDcsv}"  
         "reader_data_airT.tStart"          "${startDate}"
         "reader_data_airT.tEnd"            "${endDate}"

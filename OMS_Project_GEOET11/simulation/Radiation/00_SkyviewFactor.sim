@@ -1,7 +1,7 @@
 import static oms3.SimBuilder.instance as OMS3
 def home = oms_prj
 
-def site = "Cavone"
+def site = "Levico"
 def ID = 1
 
 OMS3.sim {
@@ -15,8 +15,8 @@ OMS3.sim {
 		
 		
 		parameter{   
-			"reader_pit.file"       "${home}/data/${site}/${ID}/dem_${ID}.tif"				         
-			"writer_skyview.file"	"${home}/data/${site}/${ID}/sky_${ID}.asc"        
+			"reader_pit.file"       "${home}/data/${site}/${ID}/dem_Levico_${ID}.tif"				         
+			"writer_skyview.file"	"${home}/data/${site}/${ID}/sky_Levico_${ID}.asc"        
 		}
 
 				
