@@ -76,11 +76,11 @@ OMS3.sim {
                 "readerSoilHeatFlux.fileNovalue"                "-9999.0"                                                     
 			
 				// WRITERS
-				"writerLatentHeatPT.file"						"${home}/output/${site}/${ID}/LatentHeat_PT_${ID}_1.csv" 
+				"writerLatentHeatPT.file"						"${home}/output/${site}/${ID}/LatentHeat_PT_${ID}.csv" 
 				"writerLatentHeatPT.tStart"						"${startDate}"
 				"writerLatentHeatPT.tTimestep"					"${timestep}"
 				
-				"writerETPriestleyTaylor.file"					"${home}/output/${site}/${ID}/Evapotranspiration_PT_${ID}_1.csv" 
+				"writerETPriestleyTaylor.file"					"${home}/output/${site}/${ID}/Evapotranspiration_PT_${ID}.csv" 
 				"writerETPriestleyTaylor.tStart"				"${startDate}"
 				"writerETPriestleyTaylor.tTimestep"				"${timestep}"
 				}

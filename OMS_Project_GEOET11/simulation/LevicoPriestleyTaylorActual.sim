@@ -7,7 +7,7 @@ def endDate		= "2020-01-01 00:00"
 def site 		= "Levico"
 def timestep 	= 60 //tempo tra 2 misurazioni 60 minuti
 def ID			= 1
-def lab         = "potential" // potential  -  totalstress  -  environmentalstress  -  waterstress
+def lab         = "waterstress" // potential  -  totalstress  -  environmentalstress  -  waterstress
 
 OMS3.sim {
 	resource "$oms_prj/lib"    
@@ -66,7 +66,7 @@ OMS3.sim {
 				"PTstressfactor.Th" 				45.0 //possiamo cambiarli per vedere come variano i risultati
 				
 				//Parameters for the Water Stress 
-				"PTstressfactor.useWaterStress" false 
+				"PTstressfactor.useWaterStress" true 
 				     										//FAO Table 19 - http://www.fao.org/3/X0490E/x0490e0c.htm#TopOfPage
 				"PTstressfactor.waterWiltingPoint"	0.17   	// se non ci sono i dati sulle tabelle questi dati si possono ricavare numericamente tramite theta residuo calcolo il wilting point
 				"PTstressfactor.waterFieldCapacity"	0.30		// deve essere più basso del theta residuo
