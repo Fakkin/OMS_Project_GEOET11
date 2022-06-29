@@ -7,7 +7,7 @@ def endDate		= "2020-01-01 00:00"
 def basin 		= "Levico"
 def ID			= 1
 def timestep 	= 60
-def lab         = "potential" // potential  -  totalstress  -  environmentalstress  -  waterstress
+def lab         = "waterstress" // potential  -  totalstress  -  environmentalstress  -  waterstress
 
 OMS3.sim {
      resource "$oms_prj/lib"
@@ -86,7 +86,7 @@ OMS3.sim {
 				"stressfactor.Th" 		45.0 	//massima
 				
 				//Parameters for the Water Stress 
-				"stressfactor.useWaterStress" false //ACQUA
+				"stressfactor.useWaterStress" true //ACQUA
 				     	
 				"stressfactor.waterWiltingPoint"		0.17   //FAO Table 19 - http://www.fao.org/3/X0490E/x0490e0c.htm#TopOfPage
 				"stressfactor.waterFieldCapacity"	0.30		//
