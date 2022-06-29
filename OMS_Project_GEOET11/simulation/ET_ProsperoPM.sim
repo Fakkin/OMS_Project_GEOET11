@@ -96,9 +96,9 @@ OMS3.sim {
 				//Parameters for the Water Stress 
 				"stressfactor.useWaterStress" true 
 				     	
-				"stressfactor.waterWiltingPoint"	0.17   //FAO Table 19 - http://www.fao.org/3/X0490E/x0490e0c.htm#TopOfPage
+				"stressfactor.waterWiltingPoint"		0.17   //FAO Table 19 - http://www.fao.org/3/X0490E/x0490e0c.htm#TopOfPage
 				"stressfactor.waterFieldCapacity"	0.30	
-				"stressfactor.rootsDepth"  			0.75	//table 22
+				"stressfactor.rootsDepth"  			0.75		//table 22 CARROTS
 				"stressfactor.evaporationDepth"  	0.25	
 				"stressfactor.depletionFraction" 	0.35   //FAO Table 22 - http://www.fao.org/3/X0490E/x0490e0e.htm#TopOfPage
 				"stressfactor.cropCoefficient" 		0.95 	//table 12

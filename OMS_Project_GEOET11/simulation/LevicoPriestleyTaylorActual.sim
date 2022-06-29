@@ -28,7 +28,7 @@ OMS3.sim {
 			"readerSoilMoisture"          	"org.hortonmachine.gears.io.timedependent.OmsTimeSeriesIteratorReader"
 			"readerCentroids"				"org.hortonmachine.gears.io.shapefile.OmsShapefileFeatureReader"		       
 			"readerDem"						"org.hortonmachine.gears.io.rasterreader.OmsRasterReader" 	
-			"writerLatentHeatPT"			"org.hortonmachine.gears.io.timedependent.OmsTimeSeriesIteratorWriter"      
+			"writerLatentHeatPT"				"org.hortonmachine.gears.io.timedependent.OmsTimeSeriesIteratorWriter"      
 			"writerETPriestleyTaylor"		"org.hortonmachine.gears.io.timedependent.OmsTimeSeriesIteratorWriter"      			         
 			
 			}  
@@ -44,14 +44,14 @@ OMS3.sim {
 				"priestleyTaylor.alpha"						1.26 //sempre fissa
 		        "priestleyTaylor.soilFluxParameterDay"		0.35 // flusso latente giorno
 		        "priestleyTaylor.soilFluxParameterNight"	    0.75 // flusso latente notte
-        		"output.doPrintOutputPT"							true
+        			"output.doPrintOutputPT"						true
         		
         
 				//Parameters for the Radiation Stress
 				"PTstressfactor.useRadiationStress" false 	// da qui in giu possiamo scegliere cosa accendere e cosa spegnere con True e False, 
 				  
 				"PTstressfactor.alpha" 				0.005 //
-				"PTstressfactor.theta" 				0.85  //
+				"PTstressfactor.theta" 				0.90  //
 				
 				//Parameter for the Vapour Pressure Deficit Stress
 				"PTstressfactor.useVDPStress" false
@@ -63,7 +63,7 @@ OMS3.sim {
 				   	
 				"PTstressfactor.Tl" 		"-5.0"
 				"PTstressfactor.T0" 				20.0 //temperature che vengono fuori da una calibrazione fatta tempo fa
-				"PTstressfactor.Th" 				45.0 //possiamo cambiarli per vedere come variano i risultati
+				"PTstressfactor.Th" 				40.0 //possiamo cambiarli per vedere come variano i risultati
 				
 				//Parameters for the Water Stress 
 				"PTstressfactor.useWaterStress" true 

@@ -4,7 +4,7 @@ def home = oms_prj
 
 def startDate	= "2013-12-15 00:00"
 def endDate		= "2015-12-16 00:00"
-def site 		= "Cavone"
+def site 		= "Meledrio"
 def timestep 	= 60
 def ID			= 1
 

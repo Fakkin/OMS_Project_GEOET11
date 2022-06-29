@@ -41,7 +41,7 @@ OMS3.sim {
 				"input.centroidElevation"	"Elevation"
 
 				// PARAMETERS
-				"penmanMonteithFao.canopyHeight"				1.26 //altezza chioma
+				"penmanMonteithFao.canopyHeight"				1.20 //altezza chioma varia per ogni coltura pomorodi=1.20m
 		        "penmanMonteithFao.soilFluxParameterDay"		0.35 //flusso giorno
 		        "penmanMonteithFao.soilFluxParameterNight"	0.75 
 		        "output.doPrintOutputPM"						true // true altrimenti non stampa i risultati

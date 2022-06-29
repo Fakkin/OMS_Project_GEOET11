@@ -52,7 +52,7 @@ OMS3.sim {
 				"PMstressfactor.waterWiltingPoint"	0.17		//FAO Table 19 - http://www.fao.org/3/X0490E/x0490e0c.htm#TopOfPage
 				"PMstressfactor.waterFieldCapacity"	0.30		// parliamo solo del suolo e non varia dalla vegetazione
 				"PMstressfactor.depth"  				1.50		// profondità identificativa di evaporazione
-				"PMstressfactor.depletionFraction" 	0.40   	//FAO Table 22 - http://www.fao.org/3/X0490E/x0490e0e.htm#TopOfPage
+				"PMstressfactor.depletionFraction" 	0.40   	//FAO Table 22 - http://www.fao.org/3/X0490E/x0490e0e.htm#TopOfPage POMODORI=0.40
 															//si può cambiare l'ultimo parametro a piacere per vedere come varia
 								
 				//	READERS				

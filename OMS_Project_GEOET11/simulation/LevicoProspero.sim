@@ -60,7 +60,7 @@ OMS3.sim {
 				"input.centroidElevation"	"Elevation"
 
 				// PARAMETERS
-				"prospero.canopyHeight"			1.26		//altezza vegetazione, altezza piante
+				"prospero.canopyHeight"			1.20		//altezza vegetazione, altezza piante pomodori=1.20m
 				"prospero.typeOfCanopy" 		"multilayer" // più strati di foglie, alberi, piante... 
 		        
 		        "output.doFullPrint"			true		//stampa tutti gli output
@@ -71,7 +71,7 @@ OMS3.sim {
 				"stressfactor.useRadiationStress" false // con true e false scelgo se mettere i fattori di stress o meno FATTORE AMBIENTALE
 				  
 				"stressfactor.alpha" 		0.005
-				"stressfactor.theta" 		0.9
+				"stressfactor.theta" 		0.90
 				
 				//Parameter for the Vapour Pressure Deficit Stress
 				"stressfactor.useVDPStress" false //AMBIENTALE
@@ -83,7 +83,7 @@ OMS3.sim {
 				   	
 				"stressfactor.Tl" 		"-5.0"	//minima
 				"stressfactor.T0" 		20.0		//ottimale
-				"stressfactor.Th" 		45.0 	//massima
+				"stressfactor.Th" 		40.0 	//massima
 				
 				//Parameters for the Water Stress 
 				"stressfactor.useWaterStress" true //ACQUA

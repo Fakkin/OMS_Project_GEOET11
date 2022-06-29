@@ -68,7 +68,7 @@ OMS3.sim {
 				"input.centroidElevation"	"Elevation"
 
 				// PARAMETERS
-				"prospero.canopyHeight"			1.26
+				"prospero.canopyHeight"			1.20		//altezza chioma POMODORI=1.20
 				"prospero.typeOfCanopy" 		"multilayer"
 		        
 		        "output.doFullPrint"			true
@@ -79,7 +79,7 @@ OMS3.sim {
 				"stressfactor.useRadiationStress" true
 				  
 				"stressfactor.alpha" 		0.005
-				"stressfactor.theta" 		0.9
+				"stressfactor.theta" 		0.90
 				
 				//Parameter for the Vapour Pressure Deficit Stress
 				"stressfactor.useVDPStress" true
@@ -91,15 +91,15 @@ OMS3.sim {
 				   	
 				"stressfactor.Tl" 		"-5.0"
 				"stressfactor.T0" 		20.0
-				"stressfactor.Th" 		45.0 
+				"stressfactor.Th" 		40.0 
 				
 				//Parameters for the Water Stress 
 				"stressfactor.useWaterStress" false 
 				     	
 				"stressfactor.waterWiltingPoint"		0.17 	 //FAO Table 19 - http://www.fao.org/3/X0490E/x0490e0c.htm#TopOfPage
 				"stressfactor.waterFieldCapacity"	0.30	
-				"stressfactor.rootsDepth"  			1.50		 //table 22
-				"stressfactor.evaporationDepth"  	0.30	
+				"stressfactor.rootsDepth"  			1.50 	 //table 22 TOMATO
+				"stressfactor.evaporationDepth"  	0.30		//
 				"stressfactor.depletionFraction" 	0.40  	 //FAO Table 22 - http://www.fao.org/3/X0490E/x0490e0e.htm#TopOfPage
 				"stressfactor.cropCoefficient" 		0.90 	 //table 12
 								

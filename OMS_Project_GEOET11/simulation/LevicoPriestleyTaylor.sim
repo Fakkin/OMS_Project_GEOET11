@@ -25,7 +25,7 @@ OMS3.sim {
 			"readerSoilHeatFlux"          	"org.hortonmachine.gears.io.timedependent.OmsTimeSeriesIteratorReader"
 			"readerCentroids"				"org.hortonmachine.gears.io.shapefile.OmsShapefileFeatureReader"		       
 			"readerDem"						"org.hortonmachine.gears.io.rasterreader.OmsRasterReader" 	
-			"writerLatentHeatPT"			"org.hortonmachine.gears.io.timedependent.OmsTimeSeriesIteratorWriter"      
+			"writerLatentHeatPT"				"org.hortonmachine.gears.io.timedependent.OmsTimeSeriesIteratorWriter"      
 			"writerETPriestleyTaylor"		"org.hortonmachine.gears.io.timedependent.OmsTimeSeriesIteratorWriter"      			         
 			
 			}  
@@ -40,8 +40,8 @@ OMS3.sim {
 				// PARAMETERS
 				"priestleyTaylor.alpha"						1.26 //costante
 		        "priestleyTaylor.soilFluxParameterDay"		0.35 // 
-		        "priestleyTaylor.soilFluxParameterNight"		0.75 // si possono cambiare
-        		"output.doPrintOutputPT"					true
+		        "priestleyTaylor.soilFluxParameterNight"		0.75 // si possono cambiare ma meglio di no
+        			"output.doPrintOutputPT"						true
         		//"priestleyTaylor.defaultAtmosphericPressure" 101.3
 		        "input.temporalStep"				"${timestep}"
         		"input.tStartDate"				"${startDate}"
