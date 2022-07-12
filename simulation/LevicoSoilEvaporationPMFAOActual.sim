@@ -7,6 +7,7 @@ def endDate		= "2020-01-01 00:00"
 def basin 		= "Levico"
 def ID			= 1
 def timestep 	= 60
+def colt			= "wine"
 
 OMS3.sim {
      resource "$oms_prj/lib"
@@ -37,8 +38,8 @@ OMS3.sim {
 			parameter{		
 
 				// GEOgraphy PARAMETERS
-				"readerDem.file"			"${home}/data/${basin}/${ID}/dem_${ID}.tif"	 
-				"readerCentroids.file"		"${home}/data/${basin}/${ID}/centroids_ID_${ID}.shp"
+				"readerDem.file"			"${home}/data/${basin}/${ID}/demLevico_${ID}.tif"	 
+				"readerCentroids.file"		"${home}/data/${basin}/${ID}/centroide.shp"
 				"input.idCentroids"			"ID"
 				"input.centroidElevation"	"Elevation"
 
@@ -51,8 +52,8 @@ OMS3.sim {
 				     	
 				"PMstressfactor.waterWiltingPoint"	0.17		//FAO Table 19 - http://www.fao.org/3/X0490E/x0490e0c.htm#TopOfPage
 				"PMstressfactor.waterFieldCapacity"	0.30		// parliamo solo del suolo e non varia dalla vegetazione
-				"PMstressfactor.depth"  				1.50		// profondità identificativa di evaporazione
-				"PMstressfactor.depletionFraction" 	0.40   	//FAO Table 22 - http://www.fao.org/3/X0490E/x0490e0e.htm#TopOfPage POMODORI=0.40
+				"PMstressfactor.depth"  				2.00	// profondità identificativa di evaporazione
+				"PMstressfactor.depletionFraction" 	0.45   	//FAO Table 22 - http://www.fao.org/3/X0490E/x0490e0e.htm#TopOfPage POMODORI=0.40
 															//si può cambiare l'ultimo parametro a piacere per vedere come varia
 								
 				//	READERS				
@@ -107,11 +108,11 @@ OMS3.sim {
 																				
 		
                 //	WRITERS				              
-				"writerFluxEvaporationFAO.file"						"${home}/output/${basin}/${ID}/WaterStressedFluxEvaporation_FAO_${ID}.csv"	
+				"writerFluxEvaporationFAO.file"						"${home}/output/${basin}/${ID}/WaterStressedFluxEvaporation_FAO_${ID}_${colt}.csv"	
 				"writerFluxEvaporationFAO.tStart"					"${startDate}"
 				"writerFluxEvaporationFAO.tTimestep"					"${timestep}"
 				
-				"writerEvaporationFAO.file"								"${home}/output/${basin}/${ID}/WaterStressedEvaporation_FAO_${ID}.csv" 
+				"writerEvaporationFAO.file"								"${home}/output/${basin}/${ID}/WaterStressedEvaporation_FAO_${ID}_${colt}.csv" 
 				"writerEvaporationFAO.tStart"							"${startDate}"
 				"writerEvaporationFAO.tTimestep"							"${timestep}"
 				

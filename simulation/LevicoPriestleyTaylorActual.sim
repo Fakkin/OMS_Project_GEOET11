@@ -7,7 +7,8 @@ def endDate		= "2020-01-01 00:00"
 def site 		= "Levico"
 def timestep 	= 60 //tempo tra 2 misurazioni 60 minuti
 def ID			= 1
-def lab         = "waterstress" // potential  -  totalstress  -  environmentalstress  -  waterstress
+def lab         = "totalstress" // potential  -  totalstress  -  environmentalstress  -  waterstress
+def colt			= "wine"
 
 OMS3.sim {
 	resource "$oms_prj/lib"    
@@ -35,8 +36,8 @@ OMS3.sim {
 			parameter{        
 				
 				// GEOgraphy PARAMETERS
-				"readerDem.file"			"${home}/data/${site}/${ID}/dem_${ID}.tif"	 //DEM digital elevation model
-				"readerCentroids.file"		"${home}/data/${site}/${ID}/centroids_ID_${ID}.shp"
+				"readerDem.file"			"${home}/data/${site}/${ID}/demLevico_${ID}.tif"	 //DEM digital elevation model
+				"readerCentroids.file"		"${home}/data/${site}/${ID}/centroide.shp"
 				"input.idCentroids"			"ID" 
 				"input.centroidElevation"	"Elevation" 
 				
@@ -48,18 +49,18 @@ OMS3.sim {
         		
         
 				//Parameters for the Radiation Stress
-				"PTstressfactor.useRadiationStress" false 	// da qui in giu possiamo scegliere cosa accendere e cosa spegnere con True e False, 
+				"PTstressfactor.useRadiationStress" true 	// da qui in giu possiamo scegliere cosa accendere e cosa spegnere con True e False, 
 				  
 				"PTstressfactor.alpha" 				0.005 //
 				"PTstressfactor.theta" 				0.90  //
 				
 				//Parameter for the Vapour Pressure Deficit Stress
-				"PTstressfactor.useVDPStress" false
+				"PTstressfactor.useVDPStress" true
 				
 				"PTstressfactor.VPD0" 				5.0  // VPD
 				
 				//Parameters for the Temperature Stress
-				"PTstressfactor.useTemperatureStress" false    
+				"PTstressfactor.useTemperatureStress" true    
 				   	
 				"PTstressfactor.Tl" 		"-5.0"
 				"PTstressfactor.T0" 				20.0 //temperature che vengono fuori da una calibrazione fatta tempo fa
@@ -70,9 +71,9 @@ OMS3.sim {
 				     										//FAO Table 19 - http://www.fao.org/3/X0490E/x0490e0c.htm#TopOfPage
 				"PTstressfactor.waterWiltingPoint"	0.17   	// se non ci sono i dati sulle tabelle questi dati si possono ricavare numericamente tramite theta residuo calcolo il wilting point
 				"PTstressfactor.waterFieldCapacity"	0.30		// deve essere più basso del theta residuo
-				"PTstressfactor.depth"  				1.50	    // tabella 22 FAO
-				"PTstressfactor.depletionFraction" 	0.40     //FAO Table 22 - http://www.fao.org/3/X0490E/x0490e0e.htm#TopOfPage
-				"PTstressfactor.cropCoefficient" 	0.90 		// tabella 12 FAO
+				"PTstressfactor.depth"  				2.00	    // tabella 22 FAO
+				"PTstressfactor.depletionFraction" 	0.45     //FAO Table 22 - http://www.fao.org/3/X0490E/x0490e0e.htm#TopOfPage
+				"PTstressfactor.cropCoefficient" 	0.45 		// tabella 12 FAO
         		
 		        "input.temporalStep"	"${timestep}"
         		"input.tStartDate"		"${startDate}"
@@ -114,11 +115,11 @@ OMS3.sim {
                 "readerSoilHeatFlux.fileNovalue"                "-9999.0"                                                     
 			
 				// WRITERS
-				"writerLatentHeatPT.file"						"${home}/output/${site}/${ID}/LatentHeat_PT_${ID}_${lab}.csv" 
+				"writerLatentHeatPT.file"						"${home}/output/${site}/${ID}/LatentHeat_PT_${ID}_${lab}_${colt}.csv" 
 				"writerLatentHeatPT.tStart"						"${startDate}"
 				"writerLatentHeatPT.tTimestep"					"${timestep}"
 				
-				"writerETPriestleyTaylor.file"					"${home}/output/${site}/${ID}/Evapotranspiration_PT_${ID}_${lab}.csv" 
+				"writerETPriestleyTaylor.file"					"${home}/output/${site}/${ID}/Evapotranspiration_PT_${ID}_${lab}_${colt}.csv" 
 				"writerETPriestleyTaylor.tStart"				"${startDate}"
 				"writerETPriestleyTaylor.tTimestep"				"${timestep}"
 				}

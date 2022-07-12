@@ -7,7 +7,8 @@ def endDate		= "2020-01-01 00:00"
 def basin 		= "Levico"
 def ID			= 1
 def timestep 	= 60
-def lab         = "waterstress" // potential  -  totalstress  -  environmentalstress  -  waterstress
+def lab         = "totalstress" // potential  -  totalstress  -  environmentalstress  -  waterstress
+def colt			= "wine"
 
 OMS3.sim {
      resource "$oms_prj/lib"
@@ -54,13 +55,13 @@ OMS3.sim {
 			parameter{		
 
 				// GEOgraphy PARAMETERS
-				"readerDem.file"			"${home}/data/${basin}/${ID}/dem_${ID}.tif"	 
-				"readerCentroids.file"		"${home}/data/${basin}/${ID}/centroids_ID_${ID}.shp"
+				"readerDem.file"			"${home}/data/${basin}/${ID}/demLevico_${ID}.tif"	 
+				"readerCentroids.file"		"${home}/data/${basin}/${ID}/centroide.shp"
 				"input.idCentroids"			"ID"
 				"input.centroidElevation"	"Elevation"
 
 				// PARAMETERS
-				"prospero.canopyHeight"			1.20		//altezza vegetazione, altezza piante pomodori=1.20m
+				"prospero.canopyHeight"			2.00 	//altezza vegetazione, altezza piante pomodori=1.20m
 				"prospero.typeOfCanopy" 		"multilayer" // più strati di foglie, alberi, piante... 
 		        
 		        "output.doFullPrint"			true		//stampa tutti gli output
@@ -68,18 +69,18 @@ OMS3.sim {
 				"input.temporalStep"			"${timestep}"
 				
 				//Parameters for the Radiation Stress
-				"stressfactor.useRadiationStress" false // con true e false scelgo se mettere i fattori di stress o meno FATTORE AMBIENTALE
+				"stressfactor.useRadiationStress" true // con true e false scelgo se mettere i fattori di stress o meno FATTORE AMBIENTALE
 				  
 				"stressfactor.alpha" 		0.005
 				"stressfactor.theta" 		0.90
 				
 				//Parameter for the Vapour Pressure Deficit Stress
-				"stressfactor.useVDPStress" false //AMBIENTALE
+				"stressfactor.useVDPStress" true //AMBIENTALE
 				
 				"stressfactor.VPD0" 	5.0 
 				
 				//Parameters for the Temperature Stress
-				"stressfactor.useTemperatureStress" false    //AMBIENTALE
+				"stressfactor.useTemperatureStress" true    //AMBIENTALE
 				   	
 				"stressfactor.Tl" 		"-5.0"	//minima
 				"stressfactor.T0" 		20.0		//ottimale
@@ -90,9 +91,9 @@ OMS3.sim {
 				     	
 				"stressfactor.waterWiltingPoint"		0.17   //FAO Table 19 - http://www.fao.org/3/X0490E/x0490e0c.htm#TopOfPage
 				"stressfactor.waterFieldCapacity"	0.30		//
-				"stressfactor.rootsDepth"  			1.50
-				"stressfactor.depletionFraction" 	0.40   //FAO Table 22 - http://www.fao.org/3/X0490E/x0490e0e.htm#TopOfPage
-				"stressfactor.cropCoefficient" 		0.90   //FAO Table 12 - https://www.fao.org/3/X0490E/x0490e0b.htm#TopOfPage
+				"stressfactor.rootsDepth"  			2.00
+				"stressfactor.depletionFraction" 	0.45   //FAO Table 22 - http://www.fao.org/3/X0490E/x0490e0e.htm#TopOfPage
+				"stressfactor.cropCoefficient" 		0.45   //FAO Table 12 - https://www.fao.org/3/X0490E/x0490e0b.htm#TopOfPage
 								
 				//	READERS				
 				"readerAirTemperature.file"         			"${home}/data/${basin}/${ID}/Temp_Levico_${ID}.csv"
@@ -173,56 +174,56 @@ OMS3.sim {
                 "readerSoilMoisture.fileNovalue"                "-9999.0"																				
 	
                 //	WRITERS				              
-				"writerLatentHeat.file"        				"${home}/output/${basin}/${ID}/LH_Sun_${ID}_${lab}.csv" 
+				"writerLatentHeat.file"        				"${home}/output/${basin}/${ID}/LH_Sun_${ID}_${lab}_${colt}.csv" 
 				"writerLatentHeat.tStart"       			"${startDate}"
 				"writerLatentHeat.tTimestep"   				"${timestep}"
 					
-				"writerLatentHeatShade.file"        		"${home}/output/${basin}/${ID}/LH_Shade_${ID}_${lab}.csv" 
+				"writerLatentHeatShade.file"        		"${home}/output/${basin}/${ID}/LH_Shade_${ID}_${lab}_${colt}.csv" 
 				"writerLatentHeatShade.tStart"       		"${startDate}"
 				"writerLatentHeatShade.tTimestep"   		"${timestep}"
 
-				"writerTranspiration.file"        			"${home}/output/${basin}/${ID}/Transpiration_${ID}_${lab}.csv" 
+				"writerTranspiration.file"        			"${home}/output/${basin}/${ID}/Transpiration_${ID}_${lab}_${colt}.csv" 
 				"writerTranspiration.tStart"       			"${startDate}"
 				"writerTranspiration.tTimestep"   			"${timestep}"
 				
-				"writerFluxTranspiration.file"        		"${home}/output/${basin}/${ID}/FluxTranspiration_${ID}_${lab}.csv" 
+				"writerFluxTranspiration.file"        		"${home}/output/${basin}/${ID}/FluxTranspiration_${ID}_${lab}_${colt}.csv" 
 				"writerFluxTranspiration.tStart"       		"${startDate}"
 				"writerFluxTranspiration.tTimestep"			"${timestep}"
 				   					        					        					        					        	
 			      					        					        					        					        	      					        					        					        					        	      					        					        					        					        	
-				"writerLeafTemperature.file"				"${home}/output/${basin}/${ID}/LT_Sun_${ID}_${lab}.csv" 
+				"writerLeafTemperature.file"				"${home}/output/${basin}/${ID}/LT_Sun_${ID}_${lab}_${colt}.csv" 
 				"writerLeafTemperature.tStart"				"${startDate}"
 				"writerLeafTemperature.tTimestep"			"${timestep}"       
 					
-				"writerLeafTemperatureShade.file"			"${home}/output/${basin}/${ID}/LT_Shade_${ID}_${lab}.csv" 
+				"writerLeafTemperatureShade.file"			"${home}/output/${basin}/${ID}/LT_Shade_${ID}_${lab}_${colt}.csv" 
 				"writerLeafTemperatureShade.tStart"			"${startDate}"
 				"writerLeafTemperatureShade.tTimestep"		"${timestep}"       
 					
-				"writerRadiation.file"						"${home}/output/${basin}/${ID}/RadiationCanopySun_${ID}_${lab}.csv" 
+				"writerRadiation.file"						"${home}/output/${basin}/${ID}/RadiationCanopySun_${ID}_${lab}_${colt}.csv" 
 				"writerRadiation.tStart"					"${startDate}"
 				"writerRadiation.tTimestep"					"${timestep}"       
 					
-				"writerRadiationShade.file"					"${home}/output/${basin}/${ID}/RadiationCanopyShade_${ID}_${lab}.csv" 
+				"writerRadiationShade.file"					"${home}/output/${basin}/${ID}/RadiationCanopyShade_${ID}_${lab}_${colt}.csv" 
 				"writerRadiationShade.tStart"				"${startDate}"
 				"writerRadiationShade.tTimestep"			"${timestep}"       
 				
-				"writerRadiationSoil.file"					"${home}/output/${basin}/${ID}/RadiationSoil_${ID}_${lab}.csv" 
+				"writerRadiationSoil.file"					"${home}/output/${basin}/${ID}/RadiationSoil_${ID}_${lab}_${colt}.csv" 
 				"writerRadiationSoil.tStart"				"${startDate}"
 				"writerRadiationSoil.tTimestep"				"${timestep}"       
 					
-				"writerCanopy.file"							"${home}/output/${basin}/${ID}/canopy_${ID}_${lab}.csv" 
+				"writerCanopy.file"							"${home}/output/${basin}/${ID}/canopy_${ID}_${lab}_${colt}.csv" 
 				"writerCanopy.tStart"						"${startDate}"
 				"writerCanopy.tTimestep"					"${timestep}"       
 					
-				"writerSensibleHeat.file"					"${home}/output/${basin}/${ID}/SH_Sun_${ID}_${lab}.csv" 
+				"writerSensibleHeat.file"					"${home}/output/${basin}/${ID}/SH_Sun_${ID}_${lab}_${colt}.csv" 
 				"writerSensibleHeat.tStart"					"${startDate}"
 				"writerSensibleHeat.tTimestep"				"${timestep}"       
 				
-				"writerSensibleHeatShade.file"				"${home}/output/${basin}/${ID}/SH_Shade_${ID}_${lab}.csv" 
+				"writerSensibleHeatShade.file"				"${home}/output/${basin}/${ID}/SH_Shade_${ID}_${lab}_${colt}.csv" 
 				"writerSensibleHeatShade.tStart"			"${startDate}"
 				"writerSensibleHeatShade.tTimestep"			"${timestep}" 
 				
-				"writerVPD.file"							"${home}/output/${basin}/${ID}/VPD_${ID}_${lab}.csv" 
+				"writerVPD.file"							"${home}/output/${basin}/${ID}/VPD_${ID}_${lab}_${colt}.csv" 
 				"writerVPD.tStart"							"${startDate}"
 				"writerVPD.tTimestep"						"${timestep}"
 				
